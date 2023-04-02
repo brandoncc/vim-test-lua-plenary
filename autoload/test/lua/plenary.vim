@@ -1,12 +1,10 @@
 " Returns true if the given file belongs to your test runner
-" if !exists('g:test#lua#plenary#file_pattern')
-  " let g:test#lua#plenary#file_pattern = '\v_spec\.(lua|moon)$'
-" endif
+if !exists('g:test#lua#plenary#file_pattern')
+  let g:test#lua#plenary#file_pattern = '\v_spec\.lua$'
+endif
 
 function! test#lua#plenary#test_file(file) abort
-  " if I want to add file name validation, it could look like this:
-  " return a:file =~# g:test#lua#plenary#file_pattern
-  return 1
+  return a:file =~# g:test#lua#plenary#file_pattern
 endfunction
 
 " Returns test runner's arguments which will run the current file and/or line
